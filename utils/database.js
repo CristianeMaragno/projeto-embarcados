@@ -27,6 +27,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             feedingTime TEXT,
             feederId INTEGER,
             sensorReading FLOAT,
+            message TEXT,
             FOREIGN KEY(feederId) REFERENCES feeder(id)
         )`);
     }

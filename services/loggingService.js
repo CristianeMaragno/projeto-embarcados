@@ -7,9 +7,9 @@ const PORT = 3002;
 app.use(bodyParser.json());
 
 app.post('/log', (req, res) => {
-    const { feedingTime, feederId, sensorReading } = req.body;
-    const query = `INSERT INTO action_log (feedingTime, feederId, sensorReading) VALUES (?, ?, ?)`;
-    db.run(query, [feedingTime, feederId, sensorReading], function(err) {
+    const { feedingTime, feederId, sensorReading, message } = req.body;
+    const query = `INSERT INTO action_log (feedingTime, feederId, sensorReading, message) VALUES (?, ?, ?, ?)`;
+    db.run(query, [feedingTime, feederId, sensorReading, message], function(err) {
         if (err) {
             return res.status(400).json({ error: err.message });
         }
